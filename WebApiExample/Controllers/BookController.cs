@@ -15,15 +15,12 @@ namespace WebApiExample.Controllers
         [HttpGet(Name ="GetBooks")]
         public IActionResult GetBooks()
         {
-            var books = new List<Books>();
-
-            var book = new Books();
-            book.BookdId = 1;
-            book.BookName = "ilk kitap";
-            book.BookDescription = "bu bnm ilk kitabım";
-
-            books.Add(book);
-
+            var books = new List<Books>() 
+            { 
+                new Books() { BookdId = 1, BookDescription = "bu bnm ilk kitabım", BookName = "ilk kitap" }, 
+                new Books() { BookdId = 2, BookDescription = "bu bnm 2 kitabım", BookName = "2 kitap" }, 
+                new Books() { BookdId = 3, BookDescription = "bu bnm 3 kitabım", BookName = "3 kitap" } 
+            };
 
             return Ok(books);
         }
